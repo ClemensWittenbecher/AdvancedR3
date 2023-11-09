@@ -5,11 +5,12 @@
 
 # Load packages required to define the pipeline:
 library(targets)
-# library(tarchetypes) # Load other packages as needed.
+library(tarchetypes) # Load other packages as needed.
 
 # Set target options:
 tar_option_set(
-  packages = c("tibble") # packages that your targets need to run
+  packages = unique(renv::dependencies(quiet = TRUE)$Package)
+      #c("tibble") # packages that your targets need to run
   # format = "qs", # Optionally set the default storage format. qs is fast.
   #
   # For distributed computing in tar_make(), supply a {crew} controller
@@ -22,7 +23,7 @@ tar_option_set(
   # Alternatively, if you want workers to run on a high-performance computing
   # cluster, select a controller from the {crew.cluster} package. The following
   # example is a controller for Sun Grid Engine (SGE).
-  # 
+  #
   #   controller = crew.cluster::crew_controller_sge(
   #     workers = 50,
   #     # Many clusters install R as an environment module, and you can load it
@@ -49,13 +50,18 @@ tar_source()
 
 # Replace the target list below with your own:
 list(
+    tar_target(
+        name = file,
+        command = "data/lipidomics.csv",
+        format = "file"
+    ),
   tar_target(
-    name = data,
-    command = tibble(x = rnorm(100), y = rnorm(100))
+    name = lipidomics,
+    command = readr::read_csv(here::here("data/lipidomics.csv"))
     # format = "feather" # efficient storage for large data frames
   ),
   tar_target(
-    name = model,
-    command = coefficients(lm(y ~ x, data = data))
+    name = df_stats_by_metabolite,
+    command = descriptive_stats(lipidomics)
   )
 )
