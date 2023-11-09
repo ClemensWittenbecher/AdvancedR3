@@ -5,6 +5,7 @@ Version: 0.0.1
 Imports:
     dplyr,
     fs,
+    ggplot2,
     here,
     knitr,
     quarto,
@@ -14,15 +15,16 @@ Imports:
     rmarkdown,
     snakecase,
     stringr,
+    
     tarchetypes,
     targets,
     tidyr,
     usethis
 Encoding: UTF-8
 Suggests: 
+    styler,
     gitcreds,
-    renv,
-    styler
+    renv
 URL: https://github.com/ClemensWittenbecher/AdvancedR3
 BugReports: https://github.com/ClemensWittenbecher/AdvancedR3/issues
 Depends: 
