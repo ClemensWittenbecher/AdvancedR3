@@ -19,6 +19,8 @@ lipidomics <- tar_read(lipidomics)
 
 ## Results
 
+## Descriptive statistics table
+
 ```{r}
 tar_read(df_stats_by_metabolite)
 ```
@@ -30,61 +32,18 @@ targets::tar_read(df_stats_by_metabolite) %>%
   knitr::kable(caption = "Descriptive statistics of the metabolites.")
 ```
 
-editor_options: markdown: wrap: 72 canonical: true
-
-## Header 1
-
-```{r setup}
-#| include: false
-knitr::opts_chunk$set(echo = TRUE)
-```
+## Univariate metabolite distributions
 
 ```{r}
-# Code chunk
+tar_read(fig_metabolite_distribution)
 ```
-
-## Header 2
 
 ```{r setup}
+targets::tar_config_set(store = here::here("_targets"))
 library(tidyverse)
+library(targets)
+library(tidymodels)
 source(here::here("R/functions.R"))
-lipidomics <- read_csv(here::here("data/lipidomics.csv"))
+lipidomics <- tar_read(lipidomics)
 ```
 
-## Basic statistics
-
-```{r basic-stats}
-#' Calculate descriptive statistics of each metabolite.
-#'
-#' @param data Lipidomics dataset.
-#'
-#' @return A data.frame/tibble.
-#'
-descriptive_stats <- function(data) {
-  data %>%
-    dplyr::group_by(metabolite) %>%
-    dplyr::summarise(dplyr::across(value, list(mean = mean, sd = sd))) %>%
-    dplyr::mutate(dplyr::across(tidyselect::where(is.numeric), ~round(.x, digits = 1)))
-}
-
-```
-
-## Data visualization
-
-```{r basic-stats}
-
-#' Metabolite distribution plot function
-#'
-#' @param data Lipidomics dataset.
-#'
-#' @return a facet plot with histograms
-#'
-plot_distributions <-
-    function(data){
-  data %>% 
-    ggplot2::ggplot(aes(x = value)) + 
-    ggplot2::geom_histogram() + 
-    ggplot2::facet_wrap(vars(metabolite), scales = "free")
-}
-
-```
