@@ -1,10 +1,34 @@
 ---
 title: "Draft Quarto document"
-author: "Your Name"
+author: "Clemens Wittenebcher"
 format: html
 execute:
   echo: true
 ---
+
+---
+# YAML header
+---
+
+```{r setup}
+targets::tar_config_set(store = here::here("_targets"))
+library(tidyverse)
+library(targets)
+lipidomics <- tar_read(lipidomics)
+```
+
+## Results
+
+```{r}
+tar_read(df_stats_by_metabolite)
+```
+
+```{r}
+targets::tar_read(df_stats_by_metabolite) %>% 
+  mutate(MeanSD = glue::glue("{value_mean} ({value_sd})")) %>%
+  select(Metabolite = metabolite, `Mean (SD)` = MeanSD) %>%
+  knitr::kable(caption = "Descriptive statistics of the metabolites.")
+```
 
 editor_options: markdown: wrap: 72 canonical: true
 
@@ -41,6 +65,26 @@ descriptive_stats <- function(data) {
     dplyr::group_by(metabolite) %>%
     dplyr::summarise(dplyr::across(value, list(mean = mean, sd = sd))) %>%
     dplyr::mutate(dplyr::across(tidyselect::where(is.numeric), ~round(.x, digits = 1)))
+}
+
+```
+
+## Data visualization
+
+```{r basic-stats}
+
+#' Metabolite distribution plot function
+#'
+#' @param data Lipidomics dataset.
+#'
+#' @return a facet plot with histograms
+#'
+plot_distributions <-
+    function(data){
+  data %>% 
+    ggplot2::ggplot(aes(x = value)) + 
+    ggplot2::geom_histogram() + 
+    ggplot2::facet_wrap(vars(metabolite), scales = "free")
 }
 
 ```
