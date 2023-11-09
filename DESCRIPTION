@@ -13,6 +13,7 @@ Imports:
     rmarkdown,
     snakecase,
     stringr,
+    targets,
     tidyr,
     usethis
 Encoding: UTF-8
@@ -22,3 +23,5 @@ Suggests:
     styler
 URL: https://github.com/ClemensWittenbecher/AdvancedR3
 BugReports: https://github.com/ClemensWittenbecher/AdvancedR3/issues
+Depends: 
+    tidyverse
