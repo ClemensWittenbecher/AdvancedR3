@@ -23,3 +23,45 @@ plot_distributions <-
             ggplot2::geom_histogram() +
             ggplot2::facet_wrap(vars(metabolite), scales = "free")
     }
+
+#' Convert column value strings into snakecase.
+#'
+#' @param data Data with string columns.
+#' @param columns The column to convert into snakecase.
+#'
+#' @return A data frame.
+#'
+column_values_to_snake_case <- function(data, columns) {
+    data %>%
+        dplyr::mutate(dplyr::across({{ columns }}, snakecase::to_snake_case))
+}
+
+#' Convert the metabolite long format into a wider one.
+#'
+#' @param data The lipidomics dataset.
+#'
+#' @return A wide data frame.
+#'
+metabolites_to_wider <- function(data) {
+    data %>%
+        tidyr::pivot_wider(
+            names_from = metabolite,
+            values_from = value,
+            values_fn = mean,
+            names_prefix = "metabolite_"
+        )
+}
+
+#' A transformation recipe to pre-process the data.
+#'
+#' @param data The lipidomics dataset.
+#' @param metabolite_variable The column of the metabolite variable.
+#'
+#' @return
+#'
+create_recipe_spec <- function(data, metabolite_variable) {
+    recipes::recipe(data) %>%
+        recipes::update_role({{ metabolite_variable }}, age, gender, new_role = "predictor") %>%
+        recipes::update_role(class, new_role = "outcome") %>%
+        recipes::step_normalize(tidyselect::starts_with("metabolite_"))
+}
