@@ -22,5 +22,5 @@ editor:
     wrap: 72
     canonical: true
 execute:
-  freeze: auto
+  freeze: true
   echo: false
