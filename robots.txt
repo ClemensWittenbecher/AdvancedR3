@@ -1,1 +1,1 @@
-Sitemap: https://github.com/ClemensWittenbecher/AdvancedR3/sitemap.xml
+Sitemap: https://ClemensWittenbecher.github.io/AdvancedR3/sitemap.xml
