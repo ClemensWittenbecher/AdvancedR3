@@ -1,7 +1,7 @@
 project:
   type: website
 website:
-  title: "Lipidomics analysis"
+  title: "Lipidomics analysis workflow"
   navbar:
     left:
       - href: index.qmd
