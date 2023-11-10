@@ -1,4 +1,5 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+.Random.seed|object|cacea3c24b874341|||||||||||||||
 add_original_metabolite_names|function|696a49ebb812c07d|||||||||||||||
 calculate_estimates|function|eeadca604046a54b|||||||||||||||
 column_values_to_snake_case|function|51292ff7bb2a9903|||||||||||||||
@@ -15,5 +16,6 @@ lipidomics|stem|6c7c870951074622|0756cd438d0e8690|ef46db3751d8e999|-1170387675||
 metabolites_to_wider|function|8eff1105ed5e7f18|||||||||||||||
 plot_distributions|function|400516a791feef0e|||||||||||||||
 plot_estimates|function|e710467c98dca542|||||||||||||||
+quarto_website|stem|76ecc65d441e40ac|1cc575874a62b65d|96bc483a9842c31a|1602464050|_site*doc/learning.qmd*index.qmd*TODO.md*_quarto.yml|t19671.5311993116s|91794404663ff7c4|1005035|file|local|vector|||12||
 split_by_metabolite|function|74d574fd81023e9b|||||||||||||||
 tidy_model_output|function|4ff0d9127acce476|||||||||||||||
