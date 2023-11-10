@@ -11,7 +11,7 @@ author:
         postal-code: 41296
 format: html
 execute:
-  echo: true
+  echo: false
 ---
 
 ---
