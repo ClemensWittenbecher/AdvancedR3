@@ -1,7 +1,17 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+add_original_metabolite_names|function|696a49ebb812c07d|||||||||||||||
+calculate_estimates|function|eeadca604046a54b|||||||||||||||
+column_values_to_snake_case|function|51292ff7bb2a9903|||||||||||||||
+create_model_workflow|function|60065308e570c7e4|||||||||||||||
+create_recipe_spec|function|275e43bdda3dd47a|||||||||||||||
 descriptive_stats|function|51a9420415a7af6a|||||||||||||||
+df_model_estimates|stem|75c06c02d52604e8|c54121e4cf891739|b43ca5682bad394b|694756191||t19671.4458547843s|dff923d388a70b81|856|rds|local|vector|||0.91|glm.fit algorithm did not converge. glm.fit fitted probabilities numerically 0 or 1 occurred. glm.fit fitted probabilities numerically 0 or 1 occurred|
 df_stats_by_metabolite|stem|a49e89a26ecbd55a|06bc50c38cf95e77|76db17b5529f9d21|1571712024||t19670.4729346049s|a0252f4d8dc0f410|403|rds|local|vector|||0.03||
 fig_metabolite_distribution|stem|5413c7499c7a2b21|fab028a148ebe7e6|6b574ac150ac7ea7|1263992679||t19670.5594975434s|9100603ceb6d7379|83814|rds|local|vector|||0.02||
 file|stem|301125be9d4645ea|6f5a37980713f8c6|ef46db3751d8e999|-1301001980|data/lipidomics.csv|t19669.4767341808s|6f631a918b070454|24313|file|local|vector|||2.58|package usethis was built under R version 4.3.2. package here was built under R version 4.3.2. package readr was built under R version 4.3.2. package renv was built under R version 4.3.2. package dplyr was built under R version 4.3.2. package fs was built under R version 4.3.2. package readxl was built under R version 4.3.2. package snakecase was built under R version 4.3.2. package stringr was built under R version 4.3.2. package tidyr was built under R version 4.3.2. package knitr was built under R version 4.3.2. package quarto was built under R version 4.3.2. package remotes was built under R version 4.3.2. package rmarkdown was built under R version 4.3.2. package tidyverse was built under R version 4.3.2. package ggplot2 was built under R version 4.3.2. package tibble was built under R version 4.3.2. package purrr was built under R version 4.3.2. package forcats was built under R version 4.3.2. package lubridate was built under R version 4.3.2. package tidyselect was built under R version 4.3.2|
+generate_model_results|function|6a9305f91da0e052|||||||||||||||
 lipidomics|stem|6c7c870951074622|0756cd438d0e8690|ef46db3751d8e999|-1170387675||t19670.4168995439s|30e7dd23cf8c9239|4884|rds|local|vector|||0.86|package tibble was built under R version 4.3.2|
+metabolites_to_wider|function|8eff1105ed5e7f18|||||||||||||||
 plot_distributions|function|400516a791feef0e|||||||||||||||
+split_by_metabolite|function|74d574fd81023e9b|||||||||||||||
+tidy_model_output|function|4ff0d9127acce476|||||||||||||||
