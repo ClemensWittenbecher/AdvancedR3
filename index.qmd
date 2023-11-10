@@ -1,1 +1,2 @@
-# Lipidomics course
+# Lipidomics example
+
