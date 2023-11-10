@@ -1,5 +1,5 @@
 ---
-title: "Draft Quarto document"
+title: "Analyses results"
 author:
   - name: Clemens Wittenebcher
     orcid: 0000-0001-7792-877X
@@ -10,6 +10,8 @@ author:
         city: Gothenburg
         postal-code: 41296
 format: html
+execute:
+  echo: false
 ---
 
 ---
@@ -17,6 +19,8 @@ format: html
 ---
 
 ```{r setup}
+#| echo: false
+#| include: false
 targets::tar_config_set(store = here::here("_targets"))
 library(tidyverse)
 library(targets)

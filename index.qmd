@@ -1,2 +1,1 @@
-# Lipidomics example
-
+# Lipidomics study
