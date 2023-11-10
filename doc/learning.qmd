@@ -10,19 +10,10 @@ author:
         city: Gothenburg
         postal-code: 41296
 format: html
-execute:
-  echo: false
 ---
 
 ---
 # YAML header
----
-
----
-editor:
-  markdown:
-    wrap: 72
-    canonical: true
 ---
 
 ```{r setup}
