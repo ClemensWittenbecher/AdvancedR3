@@ -14,10 +14,6 @@ execute:
   echo: false
 ---
 
----
-# YAML header
----
-
 ```{r setup}
 #| echo: false
 #| include: false
